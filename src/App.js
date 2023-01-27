@@ -21,18 +21,18 @@ function App() {
   useEffect(() => {
     getNum();
   }, []);
+
   // 게임 판정
   const passCheck = () => {
     // 사용자 입력값과 더하기 값이 일치하면 '정답' -> 정답++
     // 아니면 '오답' -> 오답++
     console.log(`합 = ${num1 + num2}`);
-    if (정답) {
+    if (num1 + num2 === Number(val)) {
       alert("정답");
     } else {
       alert("오답");
     }
   };
-
   return (
     <div className="container p-3 text-center">
       <h1>더하기 게임</h1>
@@ -61,8 +61,8 @@ function App() {
         className="btn btn-primary"
         onClick={() => {
           console.log("확인");
-          passCheck();
-          getNum();
+          passCheck(); // 게임판정
+          getNum(); // 문제출제
         }}
       >
         확인
